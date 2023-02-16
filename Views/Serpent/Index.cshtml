@@ -1,0 +1,56 @@
+@model IEnumerable<myown.Models.Serpent>
+
+@{
+    ViewData["Title"] = "Listagem de contatos";
+    string tituloH2 = "Contatos";
+}
+
+<h2> @tituloH2 </h2>
+
+<p>
+    <a asp-action="Criar"> Novo contato </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PopularName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CientificName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Family)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.PopularName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.CientificName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Family)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id"> Editar </a>
+                    <a asp-action="Detalhes" asp-route-id="@item.Id"> Detalhes </a>
+                    <a asp-action="Deletar" asp-route-id="@item.Id"> Deletar </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
