@@ -26,6 +26,27 @@ app.MapControllerRoute(
 
 app.Run();
 
+// public enum Family
+// {
+//     Boidae,
+//     Viperidae,
+//     Elapidae,
+//     Colubridae,
+//     Dipsadidae,
+//     Pythonidae
+// }
+
+
+
+// public class Serpent
+// {
+//     public int Id { get; set; }
+//     public string PopularName { get; set; }
+//     public string CientificName { get; set; }
+//     public Family Family { get; set; }
+// }
+
+
 
 // List<Serpent> serpents = new List<Serpent>() {
 //     new (1, "surucucu", "Lachesis muta", Family.Viperidae),

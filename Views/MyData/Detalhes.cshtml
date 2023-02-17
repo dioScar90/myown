@@ -1,4 +1,4 @@
-@model myown.Models.Serpent
+@model myown.Models.MyData
 
 @{
     ViewData["Title"] = "Detalhes do contato";
@@ -9,22 +9,22 @@
 <div>
     <dl class="row">
         <dt class="col-sm-1">
-            @Html.DisplayNameFor(x => x.PopularName):
+            @Html.DisplayNameFor(x => x.Nome):
         </dt>
         <dt class="col-sm-3">
-            @Html.DisplayFor(x => x.PopularName)
+            @Html.DisplayFor(x => x.Nome)
         </dt>
         <dt class="col-sm-1">
-            @Html.DisplayNameFor(x => x.CientificName):
+            @Html.DisplayNameFor(x => x.Telefone):
         </dt>
         <dt class="col-sm-3">
-            @Html.DisplayFor(x => x.CientificName)
+            @Html.DisplayFor(x => x.Telefone)
         </dt>
         <dt class="col-sm-1">
-            @Html.DisplayNameFor(x => x.Family):
+            @Html.DisplayNameFor(x => x.Ativo):
         </dt>
         <dt class="col-sm-3">
-            @Html.DisplayFor(x => x.Family)
+            @Html.DisplayFor(x => x.Ativo)
         </dt>
     </dl>
 </div>

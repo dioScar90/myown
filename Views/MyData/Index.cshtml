@@ -1,4 +1,4 @@
-@model IEnumerable<myown.Models.Serpent>
+@model IEnumerable<myown.Models.MyData>
 
 @{
     ViewData["Title"] = "Listagem de contatos";
@@ -18,13 +18,13 @@
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PopularName)
+                @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CientificName)
+                @Html.DisplayNameFor(model => model.Telefone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Family)
+                @Html.DisplayNameFor(model => model.Ativo)
             </th>
             <th></th>
         </tr>
@@ -37,13 +37,13 @@
                     @Html.DisplayFor(model => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => item.PopularName)
+                    @Html.DisplayFor(model => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => item.CientificName)
+                    @Html.DisplayFor(model => item.Telefone)
                 </td>
                 <td>
-                    @Html.DisplayFor(model => item.Family)
+                    @Html.DisplayFor(model => item.Ativo)
                 </td>
                 <td>
                     <a asp-action="Editar" asp-route-id="@item.Id"> Editar </a>
