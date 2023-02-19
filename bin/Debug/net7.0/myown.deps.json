@@ -9,7 +9,8 @@
       "myown/1.0.0": {
         "dependencies": {
           "Microsoft.AspNet.Mvc": "5.2.9",
-          "Microsoft.EntityFrameworkCore": "7.0.3"
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.3"
         },
         "runtime": {
           "myown.dll": {}
@@ -83,6 +84,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/7.0.3": {},
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.3": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "7.0.3.0",
+            "fileVersion": "7.0.323.6302"
+          }
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "7.0.0"
@@ -176,6 +188,13 @@
       "sha512": "sha512-CLyRWFLwaOUZNPEia/aBMzFxZqm/ITKt3B+yUFtrg4Ys5VF3n2gvneuItC9IhpeOcjfdSgu/yUKf8y/IsNHs5A==",
       "path": "microsoft.entityframeworkcore.analyzers/7.0.3",
       "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.3.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-II0TxiTXwUaHYcn4qlC+GgcrkZaZdjgfHEIfWkPJe84YOVBNshdfBEkeGnVT+n70RKOj+1NyplGo9h22jVGSWA==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.3",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.3.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/7.0.0": {
       "type": "package",
