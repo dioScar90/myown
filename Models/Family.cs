@@ -2,7 +2,7 @@ namespace myown.Models
 {
     public enum Family
     {
-        Boidae,
+        Boidae = 1,
         Viperidae,
         Elapidae,
         Colubridae,

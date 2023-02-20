@@ -10,7 +10,7 @@ using myown.Context;
 namespace myown.Migrations
 {
     [DbContext(typeof(SerpentContext))]
-    [Migration("20230220115915_InitialCreate")]
+    [Migration("20230220123835_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
