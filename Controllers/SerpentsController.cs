@@ -31,7 +31,7 @@ namespace myown.Controllers
             //     serp.PopularName = char.ToUpper(popName[0]) + popName.Substring(1);
             //     _context.Update(serp);
             // }
-            return View(await _context.Serpent.ToListAsync());
+            return View(await _context.Serpent.OrderBy(s => s.PopularName).ToListAsync());
         }
 
         // GET: Serpents/Details/5

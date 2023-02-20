@@ -187,6 +187,18 @@ public static class SeedData
                     PopularName = "Cobra-cipó-marrom",
                     CientificName = "Chironius quadricarinatus",
                     FamilyType = Family.Colubridae
+                },
+                new Serpent
+                {
+                    PopularName = "Jararacuçu-do-brejo",
+                    CientificName = "Palusophis bifossatus",
+                    FamilyType = Family.Colubridae
+                },
+                new Serpent
+                {
+                    PopularName = "Titanoboa",
+                    CientificName = "Titanoboa cerrejonensis",
+                    FamilyType = Family.Boidae
                 }
             );
             context.SaveChanges();
