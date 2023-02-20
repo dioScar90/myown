@@ -1,52 +1,192 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MvcMovie.Conntext;
+using myown.Context;
 using System;
 using System.Linq;
 
-namespace MvcMovie.Models;
+namespace myown.Models;
 
 public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using (var context = new MvcMovieContext(
+        using (var context = new SerpentContext(
             serviceProvider.GetRequiredService<
-                DbContextOptions<MvcMovieContext>>()))
+                DbContextOptions<SerpentContext>>()))
         {
             // Look for any movies.
-            if (context.Movie.Any())
+            if (context.Serpent.Any())
             {
                 return;   // DB has been seeded
             }
-            context.Movie.AddRange(
-                new Movie
+            context.Serpent.AddRange(
+                new Serpent
                 {
-                    Title = "When Harry Met Sally",
-                    ReleaseDate = DateTime.Parse("1989-2-12"),
-                    Genre = "Romantic Comedy",
-                    Price = 7.99M
+                    PopularName = "Surucucu",
+                    CientificName = "Lachesis muta",
+                    FamilyType = Family.Viperidae
                 },
-                new Movie
+                new Serpent
                 {
-                    Title = "Ghostbusters ",
-                    ReleaseDate = DateTime.Parse("1984-3-13"),
-                    Genre = "Comedy",
-                    Price = 8.99M
+                    PopularName = "Cascavel",
+                    CientificName = "Crotalus durissus",
+                    FamilyType = Family.Viperidae
                 },
-                new Movie
+                new Serpent
                 {
-                    Title = "Ghostbusters 2",
-                    ReleaseDate = DateTime.Parse("1986-2-23"),
-                    Genre = "Comedy",
-                    Price = 9.99M
+                    PopularName = "Jararaca-da-mata",
+                    CientificName = "Bothrops jararaca",
+                    FamilyType = Family.Viperidae
                 },
-                new Movie
+                new Serpent
                 {
-                    Title = "Rio Bravo",
-                    ReleaseDate = DateTime.Parse("1959-4-15"),
-                    Genre = "Western",
-                    Price = 3.99M
+                    PopularName = "Jararaca-do-norte",
+                    CientificName = "Bothrops atrox",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Jararaca-da-seca",
+                    CientificName = "Bothrops erythromelas",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Jararaca-ilhoa",
+                    CientificName = "Bothrops insularis",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Jararacuçu",
+                    CientificName = "Bothrops jararacussu",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Urutu-cruzeiro",
+                    CientificName = "Bothrops alternatus",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-coral (Caatinga)",
+                    CientificName = "Micrurus ibiboboca",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-coral (Mata Atlântica)",
+                    CientificName = "Micrurus corallinus",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-coral (Amazônia)",
+                    CientificName = "Micrurus albicintus",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Jiboia",
+                    CientificName = "Boa constrictor",
+                    FamilyType = Family.Boidae
+                },
+                new Serpent
+                {
+                    PopularName = "Jiboia-arco-íris",
+                    CientificName = "Epicrates assisi",
+                    FamilyType = Family.Boidae
+                },
+                new Serpent
+                {
+                    PopularName = "Sucuri-verde",
+                    CientificName = "Eunectes murinus",
+                    FamilyType = Family.Boidae
+                },
+                new Serpent
+                {
+                    PopularName = "Sucuri-amarela",
+                    CientificName = "Eunectes notaeus",
+                    FamilyType = Family.Boidae
+                },
+                new Serpent
+                {
+                    PopularName = "Píton-reticulada",
+                    CientificName = "Malayopython reticulatus",
+                    FamilyType = Family.Pythonidae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-rei",
+                    CientificName = "Ophiophagus hannah",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Taipan-do-interior",
+                    CientificName = "Oxyuranus microlepidotus",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Mamba-negra",
+                    CientificName = "Dendroaspis polylepis",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Mamba-verde-oriental",
+                    CientificName = "Dendroaspis angusticeps",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Naja-cuspideira",
+                    CientificName = "Hemachatus haemachatus",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Naja-egípcia",
+                    CientificName = "Naja haje",
+                    FamilyType = Family.Elapidae
+                },
+                new Serpent
+                {
+                    PopularName = "Víbora-do-gabão",
+                    CientificName = "Bitis gabonica",
+                    FamilyType = Family.Viperidae
+                },
+                new Serpent
+                {
+                    PopularName = "Periquitamboia",
+                    CientificName = "Corallus caninus",
+                    FamilyType = Family.Boidae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-verde",
+                    CientificName = "Liophis typhlus",
+                    FamilyType = Family.Dipsadidae
+                },
+                new Serpent
+                {
+                    PopularName = "Muçurana",
+                    CientificName = "Clelia clelia",
+                    FamilyType = Family.Dipsadidae
+                },
+                new Serpent
+                {
+                    PopularName = "Caninana",
+                    CientificName = "Spilotes pullatus",
+                    FamilyType = Family.Colubridae
+                },
+                new Serpent
+                {
+                    PopularName = "Cobra-cipó-marrom",
+                    CientificName = "Chironius quadricarinatus",
+                    FamilyType = Family.Colubridae
                 }
             );
             context.SaveChanges();
