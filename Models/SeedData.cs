@@ -10,7 +10,7 @@ public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        Serpent[] serpentsToAdd = new Serpent[]
+        Serpent[] serpentsThatHaveToBeListed = new Serpent[]
         {
             new()
             {
@@ -197,199 +197,22 @@ public static class SeedData
             serviceProvider.GetRequiredService<
                 DbContextOptions<SerpentContext>>()))
         {
+            List<Serpent> serpentsAlreadyListed = context.Serpent.ToList();
+            
             // Look for any movies.
             if (context.Serpent.Any())
             {
-                Console.WriteLine("\n\n\nAdicionou\n\n\n");
-                List<Serpent> tempList = context.Serpent.ToList();
-                List<Serpent> toAdd = serpentsToAdd.Where(s => !tempList.Any(tl => tl.CientificName == s.CientificName)).ToList();
-                context.Serpent.AddRange(toAdd);
-                context.SaveChanges();
-                Console.WriteLine("\n\n\nAdicionou MESMO!\n\n\n");
+                List<Serpent> serpentsToAdd = serpentsThatHaveToBeListed.Where(s => !serpentsAlreadyListed.Any(tl => tl.CientificName == s.CientificName)).ToList();
+                if (serpentsToAdd.Any()) {
+                    Console.WriteLine("\n\n\nAdicionou\n\n\n");
+                    context.Serpent.AddRange(serpentsToAdd);
+                    context.SaveChanges();
+                    Console.WriteLine("\n\n\nAdicionou MESMO!\n\n\n");
+                }
                 return;   // DB has been seeded
             }
-            context.Serpent.AddRange(
-                new Serpent
-                {
-                    PopularName = "Surucucu",
-                    CientificName = "Lachesis muta",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cascavel",
-                    CientificName = "Crotalus durissus",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararaca-da-mata",
-                    CientificName = "Bothrops jararaca",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararaca-do-norte",
-                    CientificName = "Bothrops atrox",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararaca-da-seca",
-                    CientificName = "Bothrops erythromelas",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararaca-ilhoa",
-                    CientificName = "Bothrops insularis",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararacuçu",
-                    CientificName = "Bothrops jararacussu",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Urutu-cruzeiro",
-                    CientificName = "Bothrops alternatus",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-coral (Caatinga)",
-                    CientificName = "Micrurus ibiboboca",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-coral (Mata Atlântica)",
-                    CientificName = "Micrurus corallinus",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-coral (Amazônia)",
-                    CientificName = "Micrurus albicintus",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jiboia",
-                    CientificName = "Boa constrictor",
-                    FamilyType = Family.Boidae
-                },
-                new Serpent
-                {
-                    PopularName = "Jiboia-arco-íris",
-                    CientificName = "Epicrates assisi",
-                    FamilyType = Family.Boidae
-                },
-                new Serpent
-                {
-                    PopularName = "Sucuri-verde",
-                    CientificName = "Eunectes murinus",
-                    FamilyType = Family.Boidae
-                },
-                new Serpent
-                {
-                    PopularName = "Sucuri-amarela",
-                    CientificName = "Eunectes notaeus",
-                    FamilyType = Family.Boidae
-                },
-                new Serpent
-                {
-                    PopularName = "Píton-reticulada",
-                    CientificName = "Malayopython reticulatus",
-                    FamilyType = Family.Pythonidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-rei",
-                    CientificName = "Ophiophagus hannah",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Taipan-do-interior",
-                    CientificName = "Oxyuranus microlepidotus",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Mamba-negra",
-                    CientificName = "Dendroaspis polylepis",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Mamba-verde-oriental",
-                    CientificName = "Dendroaspis angusticeps",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Naja-cuspideira",
-                    CientificName = "Hemachatus haemachatus",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Naja-egípcia",
-                    CientificName = "Naja haje",
-                    FamilyType = Family.Elapidae
-                },
-                new Serpent
-                {
-                    PopularName = "Víbora-do-gabão",
-                    CientificName = "Bitis gabonica",
-                    FamilyType = Family.Viperidae
-                },
-                new Serpent
-                {
-                    PopularName = "Periquitamboia",
-                    CientificName = "Corallus caninus",
-                    FamilyType = Family.Boidae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-verde",
-                    CientificName = "Liophis typhlus",
-                    FamilyType = Family.Dipsadidae
-                },
-                new Serpent
-                {
-                    PopularName = "Muçurana",
-                    CientificName = "Clelia clelia",
-                    FamilyType = Family.Dipsadidae
-                },
-                new Serpent
-                {
-                    PopularName = "Caninana",
-                    CientificName = "Spilotes pullatus",
-                    FamilyType = Family.Colubridae
-                },
-                new Serpent
-                {
-                    PopularName = "Cobra-cipó-marrom",
-                    CientificName = "Chironius quadricarinatus",
-                    FamilyType = Family.Colubridae
-                },
-                new Serpent
-                {
-                    PopularName = "Jararacuçu-do-brejo",
-                    CientificName = "Palusophis bifossatus",
-                    FamilyType = Family.Colubridae
-                },
-                new Serpent
-                {
-                    PopularName = "Titanoboa",
-                    CientificName = "Titanoboa cerrejonensis",
-                    FamilyType = Family.Boidae
-                }
-            );
+            
+            context.Serpent.AddRange(serpentsThatHaveToBeListed);
             context.SaveChanges();
         }
     }
