@@ -223,27 +223,31 @@ public static class SeedData
                 FamilyType = Family.Colubridae
             }
         };
-        using (var context = new SerpentContext(
-            serviceProvider.GetRequiredService<
-                DbContextOptions<SerpentContext>>()))
+        
+        using (var context = new SerpentContext(serviceProvider.GetRequiredService<DbContextOptions<SerpentContext>>()))
         {
             List<Serpent> serpentsAlreadyListed = context.Serpent.ToList();
             
-            // Look for any movies.
+            // Look for any serpents in already existing list.
             if (context.Serpent.Any())
             {
-                List<Serpent> serpentsToAdd = serpentsThatHaveToBeListed.Where(s => !serpentsAlreadyListed.Any(tl => tl.CientificName == s.CientificName)).ToList();
-                if (serpentsToAdd.Any()) {
+                // Get serpents that doesn't exist in the principal list yet.
+                List<Serpent> serpentsNotListedYet = serpentsThatHaveToBeListed.Where(lst1 => !serpentsAlreadyListed.Any(lst2 => lst2.CientificName == lst1.CientificName)).ToList();
+
+                // Look for serpents to be added.
+                if (serpentsNotListedYet.Any()) {
                     Console.WriteLine("\n\n\nAdicionou\n\n\n");
-                    context.Serpent.AddRange(serpentsToAdd);
+
+                    context.Serpent.AddRange(serpentsNotListedYet);
                     context.SaveChanges();
+                    
                     Console.WriteLine("\n\n\nAdicionou MESMO!\n\n\n");
                 }
-                return;   // DB has been seeded
+                return; // DB has been seeded once again.
             }
             
             context.Serpent.AddRange(serpentsThatHaveToBeListed);
-            context.SaveChanges();
+            context.SaveChanges(); // DB has been seeded.
         }
     }
 }
