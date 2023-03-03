@@ -28,7 +28,7 @@ namespace myown.Controllers
             //     var serp = await _context.Serpent
             //     .FirstOrDefaultAsync(m => m.Id == i);
             //     string popName = serp.PopularName;
-            //     serp.PopularName = char.ToUpper(popName[0]) + popName.Substring(1);
+            //     serp.PopularName = char.ToUpper(popName[0]) + popName[1..];
             //     _context.Update(serp);
             // }
             return View(await _context.Serpent.OrderBy(s => s.PopularName).ToListAsync());
