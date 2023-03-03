@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using myown.Context;
 using myown.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<SerpentContext>(options =>
