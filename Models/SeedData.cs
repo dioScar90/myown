@@ -221,6 +221,12 @@ public static class SeedData
                 PopularName = "Cobra-verde",
                 CientificName = "Philodryas olfersii",
                 FamilyType = Family.Colubridae
+            },
+            new()
+            {
+                PopularName = "Naja-de-monóculo",
+                CientificName = "Naja kaouthia",
+                FamilyType = Family.Elapidae
             }
         };
         
